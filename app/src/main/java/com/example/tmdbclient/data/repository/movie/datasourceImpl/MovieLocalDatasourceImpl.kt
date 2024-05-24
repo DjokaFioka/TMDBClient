@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 /**
  * Created by Djole on 30.05.2023..
  */
-class MovieLocalDatasourceImpl(private val movieDao: MovieDao): MovieLocalDatasource {
+class MovieLocalDatasourceImpl(private val movieDao: MovieDao) : MovieLocalDatasource {
 
     //za ovo nam ne treba Coroutine jer Room vraca podatke iz baze kroz background thread
     override suspend fun getMoviesFromDB(): List<Movie> = movieDao.getMovies()

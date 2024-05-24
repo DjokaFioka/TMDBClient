@@ -6,7 +6,7 @@ import com.example.tmdbclient.data.repository.tvshow.datasource.TvShowCacheDatas
 /**
  * Created by Djole on 30.05.2023..
  */
-class TvShowCacheDatasourceImpl: TvShowCacheDatasource {
+class TvShowCacheDatasourceImpl : TvShowCacheDatasource {
     private var tvShowList = ArrayList<TvShow>()
 
     override suspend fun getTvShowsFromCache(): List<TvShow> {

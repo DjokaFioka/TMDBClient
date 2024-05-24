@@ -18,7 +18,7 @@ class CacheDataModule {
 
     @Singleton
     @Provides
-    fun provideMovieCacheDatasource(): MovieCacheDatasource{
+    fun provideMovieCacheDatasource(): MovieCacheDatasource {
         return MovieCacheDatasourceImpl()
     }
 

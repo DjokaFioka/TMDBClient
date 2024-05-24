@@ -6,7 +6,7 @@ import com.example.tmdbclient.data.repository.movie.datasource.MovieCacheDatasou
 /**
  * Created by Djole on 30.05.2023..
  */
-class MovieCacheDatasourceImpl: MovieCacheDatasource {
+class MovieCacheDatasourceImpl : MovieCacheDatasource {
     private var movieList = ArrayList<Movie>()
 
     override suspend fun getMoviesFromCache(): List<Movie> {

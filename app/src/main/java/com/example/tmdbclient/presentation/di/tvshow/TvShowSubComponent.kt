@@ -12,7 +12,7 @@ interface TvShowSubComponent {
     fun inject(tvShowActivity: TvShowActivity)
 
     @Subcomponent.Factory
-    interface Factory{
+    interface Factory {
         fun create(): TvShowSubComponent
     }
 }

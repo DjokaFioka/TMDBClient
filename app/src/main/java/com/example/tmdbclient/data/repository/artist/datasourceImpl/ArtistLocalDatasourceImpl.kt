@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 /**
  * Created by Djole on 30.05.2023..
  */
-class ArtistLocalDatasourceImpl(private val artistDao: ArtistDao): ArtistLocalDatasource {
+class ArtistLocalDatasourceImpl(private val artistDao: ArtistDao) : ArtistLocalDatasource {
 
     override suspend fun getArtistsFromDB(): List<Artist> = artistDao.getArtists()
 

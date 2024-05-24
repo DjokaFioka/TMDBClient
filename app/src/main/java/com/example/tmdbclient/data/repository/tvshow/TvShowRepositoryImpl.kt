@@ -11,7 +11,7 @@ class TvShowRepositoryImpl(
     private val tvShowRemoteDatasource: TvShowRemoteDatasource,
     private val tvShowLocalDatasource: TvShowLocalDatasource,
     private val tvShowCacheDatasource: TvShowCacheDatasource
-): TvShowRepository {
+) : TvShowRepository {
 
     override suspend fun getTvShows(): List<TvShow>? {
         //Podaci se preuzimaju iz cache,
@@ -28,33 +28,33 @@ class TvShowRepositoryImpl(
         return newListOfTvShows
     }
 
-    suspend fun getTvShowsFromAPI(): List<TvShow>{
+    suspend fun getTvShowsFromAPI(): List<TvShow> {
         lateinit var tvShowList: List<TvShow>
 
         try {
             val response = tvShowRemoteDatasource.getTvShows()
             val body = response.body()
-            if (body != null){
+            if (body != null) {
                 tvShowList = body.tvShows
             }
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
         return tvShowList
     }
 
-    suspend fun getTvShowsFromDB(): List<TvShow>{
+    suspend fun getTvShowsFromDB(): List<TvShow> {
         lateinit var tvShowList: List<TvShow>
 
         try {
             tvShowList = tvShowLocalDatasource.getTvShowsFromDB()
 
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
-        if (tvShowList.size > 0){
+        if (tvShowList.size > 0) {
             return tvShowList
         } else {
             tvShowList = getTvShowsFromAPI()
@@ -64,17 +64,17 @@ class TvShowRepositoryImpl(
         return tvShowList
     }
 
-    suspend fun getTvShowsFromCache(): List<TvShow>{
+    suspend fun getTvShowsFromCache(): List<TvShow> {
         lateinit var tvShowList: List<TvShow>
 
         try {
             tvShowList = tvShowCacheDatasource.getTvShowsFromCache()
 
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
-        if (tvShowList.isNotEmpty()){
+        if (tvShowList.isNotEmpty()) {
             return tvShowList
         } else {
             tvShowList = getTvShowsFromDB()

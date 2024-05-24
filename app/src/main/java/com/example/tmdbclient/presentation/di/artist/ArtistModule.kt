@@ -17,7 +17,7 @@ class ArtistModule {
     fun provideArtistViewModelFactory(
         getArtistsUseCase: GetArtistsUseCase,
         updateArtistsUseCase: UpdateArtistsUseCase
-    ): ArtistViewModelFactory{
+    ): ArtistViewModelFactory {
         return ArtistViewModelFactory(getArtistsUseCase, updateArtistsUseCase)
     }
 }

@@ -11,7 +11,7 @@ class MovieRepositoryImpl(
     private val movieRemoteDatasource: MovieRemoteDatasource,
     private val movieLocalDatasource: MovieLocalDatasource,
     private val movieCacheDatasource: MovieCacheDatasource
-): MovieRepository {
+) : MovieRepository {
 
     override suspend fun getMovies(): List<Movie>? {
         //Podaci se preuzimaju iz cache,
@@ -28,33 +28,33 @@ class MovieRepositoryImpl(
         return newListOfMovies
     }
 
-    suspend fun getMoviesFromAPI(): List<Movie>{
+    suspend fun getMoviesFromAPI(): List<Movie> {
         lateinit var movieList: List<Movie>
 
         try {
             val response = movieRemoteDatasource.getMovies()
             val body = response.body()
-            if (body != null){
+            if (body != null) {
                 movieList = body.movies
             }
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
         return movieList
     }
 
-    suspend fun getMoviesFromDB(): List<Movie>{
+    suspend fun getMoviesFromDB(): List<Movie> {
         lateinit var movieList: List<Movie>
 
         try {
             movieList = movieLocalDatasource.getMoviesFromDB()
 
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
-        if (movieList.size > 0){
+        if (movieList.size > 0) {
             return movieList
         } else {
             movieList = getMoviesFromAPI()
@@ -64,17 +64,17 @@ class MovieRepositoryImpl(
         return movieList
     }
 
-    suspend fun getMoviesFromCache(): List<Movie>{
+    suspend fun getMoviesFromCache(): List<Movie> {
         lateinit var movieList: List<Movie>
 
         try {
             movieList = movieCacheDatasource.getMoviesFromCache()
 
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
-        if (movieList.isNotEmpty()){
+        if (movieList.isNotEmpty()) {
             return movieList
         } else {
             movieList = getMoviesFromDB()

@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 /**
  * Created by Djole on 30.05.2023..
  */
-class TvShowLocalDatasourceImpl(private val tvShowDao: TvShowDao): TvShowLocalDatasource {
+class TvShowLocalDatasourceImpl(private val tvShowDao: TvShowDao) : TvShowLocalDatasource {
 
     override suspend fun getTvShowsFromDB(): List<TvShow> = tvShowDao.getTvShows()
 

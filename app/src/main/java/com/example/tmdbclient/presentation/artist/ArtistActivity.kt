@@ -44,26 +44,28 @@ class ArtistActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId){
+        return when (item.itemId) {
             R.id.action_update -> {
                 updateArtists()
                 true
-            } else -> super.onOptionsItemSelected(item)
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         binding.artistRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = ArtistAdapter()
         binding.artistRecyclerView.adapter = adapter
         displayPopularArtists()
     }
 
-    private fun displayPopularArtists(){
+    private fun displayPopularArtists() {
         binding.artistProgressBar.visibility = View.VISIBLE
         val responseLiveData = artistViewModel.getMovies()
         responseLiveData.observe(this, Observer {
-            if (it != null){
+            if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
             } else {
@@ -74,11 +76,11 @@ class ArtistActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateArtists(){
+    private fun updateArtists() {
         binding.artistProgressBar.visibility = View.VISIBLE
         val response = artistViewModel.updateMovies()
         response.observe(this, Observer {
-            if (it != null){
+            if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
                 Toast.makeText(applicationContext, "Artist List Updated", Toast.LENGTH_SHORT).show()

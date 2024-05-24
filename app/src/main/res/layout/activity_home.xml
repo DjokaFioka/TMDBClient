@@ -1,4 +1,4 @@
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -6,49 +6,101 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:weightSum="3.0"
         tools:context=".presentation.HomeActivity">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/movie_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/colorWhite"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/movie_layout"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:background="@drawable/btn_rounded"
-            android:padding="15dp"
-            android:text="Movies"
-            android:textSize="50sp" />
+            android:focusable="true"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_movie"
+                app:tint="@color/white"
+                android:contentDescription="@string/menu_movies"
+                android:layout_gravity="start|center_vertical"
+                android:scaleType="fitCenter"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="@string/menu_movies"
+                android:textAllCaps="true"/>
+        </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/tv_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/colorWhite"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/tv_layout"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:background="@drawable/btn_rounded"
-            android:padding="15dp"
-            android:text="Tv Shows"
-            android:textSize="50sp" />
+            android:focusable="true"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_tv_show"
+                app:tint="@color/white"
+                android:contentDescription="@string/menu_tv"
+                android:layout_gravity="start|center_vertical"
+                android:scaleType="fitCenter"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="@string/menu_tv"
+                android:textAllCaps="true"/>
+        </LinearLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/artists_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.0"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="@color/colorWhite"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/artists_layout"
+            android:layout_margin="16dp"
+            android:padding="16dp"
             android:background="@drawable/btn_rounded"
-            android:padding="15dp"
-            android:text="Artists"
-            android:textSize="50sp" />
+            android:focusable="true"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_artist"
+                app:tint="@color/white"
+                android:contentDescription="@string/menu_artists"
+                android:layout_gravity="start|center_vertical"
+                android:scaleType="fitCenter"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="@string/menu_artists"
+                android:textAllCaps="true"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 </layout>

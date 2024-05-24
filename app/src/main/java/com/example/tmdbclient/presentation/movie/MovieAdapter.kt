@@ -12,10 +12,10 @@ import com.example.tmdbclient.databinding.ListItemBinding
 /**
  * Created by Djole on 02.06.2023..
  */
-class MovieAdapter: RecyclerView.Adapter<MyViewHolder>() {
+class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
     private val movieList = ArrayList<Movie>()
 
-    fun setList(movies:List<Movie>){
+    fun setList(movies: List<Movie>) {
         movieList.clear()
         movieList.addAll(movies)
     }
@@ -26,7 +26,8 @@ class MovieAdapter: RecyclerView.Adapter<MyViewHolder>() {
             layoutInflater,
             R.layout.list_item,
             parent,
-            false)
+            false
+        )
 
         return MyViewHolder(binding)
     }
@@ -40,8 +41,8 @@ class MovieAdapter: RecyclerView.Adapter<MyViewHolder>() {
     }
 }
 
-class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
-    fun bind(movie: Movie){
+class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(movie: Movie) {
         binding.titleTextView.text = movie.title
         binding.descriptionTextView.text = movie.overview
         val posterURL = "https://image.tmdb.org/t/p/w500" + movie.posterPath

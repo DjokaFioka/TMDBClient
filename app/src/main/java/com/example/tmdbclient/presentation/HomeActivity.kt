@@ -3,9 +3,6 @@ package com.example.tmdbclient.presentation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import com.example.tmdbclient.R
 import com.example.tmdbclient.databinding.ActivityHomeBinding
@@ -22,23 +19,21 @@ class HomeActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_home)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home)
 
-        binding.movieButton.setOnClickListener {
+        binding.movieLayout.setOnClickListener {
             val intent = Intent(this, MovieActivity::class.java)
             startActivity(intent)
         }
 
-        binding.tvButton.setOnClickListener {
+        binding.tvLayout.setOnClickListener {
             val intent = Intent(this, TvShowActivity::class.java)
             startActivity(intent)
         }
 
-        binding.artistsButton.setOnClickListener {
+        binding.artistsLayout.setOnClickListener {
             val intent = Intent(this, ArtistActivity::class.java)
             startActivity(intent)
         }
     }
-
-
 
 
 }

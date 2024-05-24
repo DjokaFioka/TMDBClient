@@ -44,26 +44,28 @@ class MovieActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId){
+        return when (item.itemId) {
             R.id.action_update -> {
                 updateMovies()
                 true
-            } else -> super.onOptionsItemSelected(item)
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         binding.movieRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = MovieAdapter()
         binding.movieRecyclerView.adapter = adapter
         displayPopularMovies()
     }
 
-    private fun displayPopularMovies(){
+    private fun displayPopularMovies() {
         binding.movieProgressBar.visibility = View.VISIBLE
         val responseLiveData = movieViewModel.getMovies()
         responseLiveData.observe(this, Observer {
-            if (it != null){
+            if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
             } else {
@@ -74,11 +76,11 @@ class MovieActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateMovies(){
+    private fun updateMovies() {
         binding.movieProgressBar.visibility = View.VISIBLE
         val response = movieViewModel.updateMovies()
         response.observe(this, Observer {
-            if (it != null){
+            if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
                 Toast.makeText(applicationContext, "Movie List Updated", Toast.LENGTH_SHORT).show()

@@ -11,7 +11,7 @@ class ArtistRepositoryImpl(
     private val artistRemoteDatasource: ArtistRemoteDatasource,
     private val artistLocalDatasource: ArtistLocalDatasource,
     private val artistCacheDatasource: ArtistCacheDatasource
-): ArtistRepository {
+) : ArtistRepository {
 
     override suspend fun getArtists(): List<Artist>? {
         //Podaci se preuzimaju iz cache,
@@ -28,33 +28,33 @@ class ArtistRepositoryImpl(
         return newListOfArtists
     }
 
-    suspend fun getArtistsFromAPI(): List<Artist>{
+    suspend fun getArtistsFromAPI(): List<Artist> {
         lateinit var artistList: List<Artist>
 
         try {
             val response = artistRemoteDatasource.getArtists()
             val body = response.body()
-            if (body != null){
+            if (body != null) {
                 artistList = body.artists
             }
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
         return artistList
     }
 
-    suspend fun getArtistsFromDB(): List<Artist>{
+    suspend fun getArtistsFromDB(): List<Artist> {
         lateinit var artistList: List<Artist>
 
         try {
             artistList = artistLocalDatasource.getArtistsFromDB()
 
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
-        if (artistList.size > 0){
+        if (artistList.size > 0) {
             return artistList
         } else {
             artistList = getArtistsFromAPI()
@@ -64,17 +64,17 @@ class ArtistRepositoryImpl(
         return artistList
     }
 
-    suspend fun getArtistsFromCache(): List<Artist>{
+    suspend fun getArtistsFromCache(): List<Artist> {
         lateinit var artistList: List<Artist>
 
         try {
             artistList = artistCacheDatasource.getArtistsFromCache()
 
-        }catch (exception: Exception){
+        } catch (exception: Exception) {
             Log.i("MyTag", "Exception " + exception.message.toString())
         }
 
-        if (artistList.isNotEmpty()){
+        if (artistList.isNotEmpty()) {
             return artistList
         } else {
             artistList = getArtistsFromDB()

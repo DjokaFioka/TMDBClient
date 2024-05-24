@@ -17,7 +17,7 @@ class MovieModule {
     fun provideMovieViewModelFactory(
         getMoviesUseCase: GetMoviesUseCase,
         updateMoviesUseCase: UpdateMoviesUseCase
-    ): MovieViewModelFactory{
+    ): MovieViewModelFactory {
         return MovieViewModelFactory(getMoviesUseCase, updateMoviesUseCase)
     }
 }

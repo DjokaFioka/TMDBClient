@@ -30,8 +30,13 @@ class RepositoryModule {
     fun provideMovieRepository(
         movieRemoteDatasource: MovieRemoteDatasource,
         movieLocalDatasource: MovieLocalDatasource,
-        movieCacheDatasource: MovieCacheDatasource): MovieRepository{
-        return MovieRepositoryImpl(movieRemoteDatasource, movieLocalDatasource, movieCacheDatasource)
+        movieCacheDatasource: MovieCacheDatasource
+    ): MovieRepository {
+        return MovieRepositoryImpl(
+            movieRemoteDatasource,
+            movieLocalDatasource,
+            movieCacheDatasource
+        )
     }
 
     @Singleton
@@ -41,7 +46,11 @@ class RepositoryModule {
         tvShowLocalDatasource: TvShowLocalDatasource,
         tvShowCacheDatasource: TvShowCacheDatasource
     ): TvShowRepository {
-        return TvShowRepositoryImpl(tvShowRemoteDatasource, tvShowLocalDatasource, tvShowCacheDatasource)
+        return TvShowRepositoryImpl(
+            tvShowRemoteDatasource,
+            tvShowLocalDatasource,
+            tvShowCacheDatasource
+        )
     }
 
     @Singleton
@@ -51,6 +60,10 @@ class RepositoryModule {
         artistLocalDatasource: ArtistLocalDatasource,
         artistCacheDatasource: ArtistCacheDatasource
     ): ArtistRepository {
-        return ArtistRepositoryImpl(artistRemoteDatasource, artistLocalDatasource, artistCacheDatasource)
+        return ArtistRepositoryImpl(
+            artistRemoteDatasource,
+            artistLocalDatasource,
+            artistCacheDatasource
+        )
     }
 }

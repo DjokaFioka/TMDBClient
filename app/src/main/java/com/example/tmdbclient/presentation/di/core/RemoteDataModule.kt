@@ -25,7 +25,7 @@ class RemoteDataModule(private val apiKey: String) {
 
     @Singleton
     @Provides
-    fun provideTvRemoteDatasource(tmdbService: TMDBService): TvShowRemoteDatasource{
+    fun provideTvRemoteDatasource(tmdbService: TMDBService): TvShowRemoteDatasource {
         return TvShowRemoteDatasourceImpl(tmdbService, apiKey)
     }
 

@@ -12,10 +12,10 @@ import com.example.tmdbclient.databinding.ListItemBinding
 /**
  * Created by Djole on 02.06.2023..
  */
-class ArtistAdapter: RecyclerView.Adapter<MyViewHolder>() {
+class ArtistAdapter : RecyclerView.Adapter<MyViewHolder>() {
     private val artistList = ArrayList<Artist>()
 
-    fun setList(artists: List<Artist>){
+    fun setList(artists: List<Artist>) {
         artistList.clear()
         artistList.addAll(artists)
     }
@@ -26,7 +26,8 @@ class ArtistAdapter: RecyclerView.Adapter<MyViewHolder>() {
             layoutInflater,
             R.layout.list_item,
             parent,
-            false)
+            false
+        )
 
         return MyViewHolder(binding)
     }
@@ -40,8 +41,8 @@ class ArtistAdapter: RecyclerView.Adapter<MyViewHolder>() {
     }
 }
 
-class MyViewHolder(val binding: ListItemBinding): RecyclerView.ViewHolder(binding.root){
-    fun bind(artist: Artist){
+class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    fun bind(artist: Artist) {
         binding.titleTextView.text = artist.name
         binding.descriptionTextView.text = artist.popularity.toString()
         val posterURL = "https://image.tmdb.org/t/p/w500" + artist.profilePath

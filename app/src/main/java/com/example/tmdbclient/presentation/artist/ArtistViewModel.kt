@@ -11,7 +11,7 @@ import com.example.tmdbclient.domain.usecase.UpdateArtistsUseCase
 class ArtistViewModel(
     private val getArtistsUseCase: GetArtistsUseCase,
     private val updateArtistsUseCase: UpdateArtistsUseCase
-): ViewModel() {
+) : ViewModel() {
 
     fun getMovies() = liveData {
         val artistList = getArtistsUseCase.execute()

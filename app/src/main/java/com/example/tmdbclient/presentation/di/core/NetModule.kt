@@ -15,7 +15,7 @@ class NetModule(private val baseUrl: String) {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit{
+    fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(baseUrl)
@@ -24,7 +24,7 @@ class NetModule(private val baseUrl: String) {
 
     @Singleton
     @Provides
-    fun provideTMDBService(retrofit: Retrofit): TMDBService{
+    fun provideTMDBService(retrofit: Retrofit): TMDBService {
         return retrofit.create(TMDBService::class.java)
     }
 }

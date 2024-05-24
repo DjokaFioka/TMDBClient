@@ -44,26 +44,28 @@ class TvShowActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId){
+        return when (item.itemId) {
             R.id.action_update -> {
                 updateTvShows()
                 true
-            } else -> super.onOptionsItemSelected(item)
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         binding.tvRecyclerView.layoutManager = LinearLayoutManager(this)
         adapter = TvShowAdapter()
         binding.tvRecyclerView.adapter = adapter
         displayPopularTvShows()
     }
 
-    private fun displayPopularTvShows(){
+    private fun displayPopularTvShows() {
         binding.tvProgressBar.visibility = View.VISIBLE
         val responseLiveData = tvShowViewModel.getMovies()
         responseLiveData.observe(this, Observer {
-            if (it != null){
+            if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
             } else {
@@ -74,14 +76,15 @@ class TvShowActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateTvShows(){
+    private fun updateTvShows() {
         binding.tvProgressBar.visibility = View.VISIBLE
         val response = tvShowViewModel.updateMovies()
         response.observe(this, Observer {
-            if (it != null){
+            if (it != null) {
                 adapter.setList(it)
                 adapter.notifyDataSetChanged()
-                Toast.makeText(applicationContext, "Tv show List Updated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Tv show List Updated", Toast.LENGTH_SHORT)
+                    .show()
             } else {
                 Toast.makeText(applicationContext, "No data available", Toast.LENGTH_LONG).show()
             }

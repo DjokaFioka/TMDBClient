@@ -6,7 +6,7 @@ import com.example.tmdbclient.data.repository.artist.datasource.ArtistCacheDatas
 /**
  * Created by Djole on 30.05.2023..
  */
-class ArtistCacheDatasourceImpl: ArtistCacheDatasource {
+class ArtistCacheDatasourceImpl : ArtistCacheDatasource {
     private var artistList = ArrayList<Artist>()
 
     override suspend fun getArtistsFromCache(): List<Artist> {
