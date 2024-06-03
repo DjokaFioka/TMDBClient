@@ -7,5 +7,5 @@ import com.example.tmdbclient.data.model.tvshow.TvShow
  */
 interface TvShowCacheDatasource {
     suspend fun getTvShowsFromCache(): List<TvShow>
-    suspend fun saveTvShowsToCache(movies: List<TvShow>)
+    suspend fun saveTvShowsToCache(tvShows: List<TvShow>)
 }

@@ -6,13 +6,13 @@ import dagger.Subcomponent
 /**
  * Created by Djole on 31.05.2023..
  */
-@TvShowScope
-@Subcomponent(modules = [TvShowModule::class])
-interface TvShowSubComponent {
-    fun inject(tvShowActivity: TvShowActivity)
-
-    @Subcomponent.Factory
-    interface Factory {
-        fun create(): TvShowSubComponent
-    }
-}
+//@TvShowScope
+//@Subcomponent(modules = [TvShowModule::class])
+//interface TvShowSubComponent {
+//    fun inject(tvShowActivity: TvShowActivity)
+//
+//    @Subcomponent.Factory
+//    interface Factory {
+//        fun create(): TvShowSubComponent
+//    }
+//}

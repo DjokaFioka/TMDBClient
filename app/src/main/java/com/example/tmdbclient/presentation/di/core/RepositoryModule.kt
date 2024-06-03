@@ -17,12 +17,15 @@ import com.example.tmdbclient.domain.repository.MovieRepository
 import com.example.tmdbclient.domain.repository.TvShowRepository
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /**
  * Created by Djole on 31.05.2023..
  */
 @Module
+@InstallIn(SingletonComponent::class)
 class RepositoryModule {
 
     @Singleton

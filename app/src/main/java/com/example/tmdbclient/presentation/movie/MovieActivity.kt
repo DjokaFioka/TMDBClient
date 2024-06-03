@@ -14,9 +14,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tmdbclient.R
 import com.example.tmdbclient.databinding.ActivityMovieBinding
-import com.example.tmdbclient.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MovieActivity : AppCompatActivity() {
 
     @Inject
@@ -28,8 +29,9 @@ class MovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
-        (application as Injector).createMovieSubComponent()
-            .inject(this)
+        //Trebalo sa Daggerom - ne treba sa Hiltom
+//        (application as Injector).createMovieSubComponent()
+//            .inject(this)
 
         movieViewModel = ViewModelProvider(this, factory)
             .get(MovieViewModel::class.java)
